@@ -1,14 +1,6 @@
 #include<stdio.h>
 int main()
 {
-    int a=10-5;
-    printf("%d\n",a);
-     int b=20-10;
-    printf("%d",b);
+     printf("%d",sizeof(double));
     return 0;
 }
-
-
-
-
-

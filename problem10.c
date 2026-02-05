@@ -1,14 +1,8 @@
 #include<stdio.h>
 int main()
 {
-    int a;
-    a=10;
-    printf("%d\n",a);
-    int b;
-    b=60;
-    printf("%d",b);
+    char ch='A';
+    int x=ch;
+    printf("%c",ch);
     return 0;
-
-
-
 }

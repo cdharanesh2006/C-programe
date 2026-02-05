@@ -2,8 +2,7 @@
 int main()
 {
     int a=10;
-    printf("%d\n",a);
-    int b=50;
-    printf("%d",b);
+    int b=99;
+    printf("%d\n%d",a,b);
     return 0;
 }
