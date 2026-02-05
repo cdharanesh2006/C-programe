@@ -1,8 +1,9 @@
 #include<stdio.h>
 int main()
 {
-    float a;
-    scanf("%f",&a);
-    printf("%f",a);
-    return 0;
+        char ch='X';
+        printf("%c\n",ch);
+         char a='B';
+        printf("%c",a);
+        return 0;
 }

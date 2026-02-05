@@ -1,14 +1,14 @@
 #include<stdio.h>
 int main()
 {
-    int a=10-5;
+    int a;
+    a=10;
     printf("%d\n",a);
-     int b=20-10;
+    int b;
+    b=60;
     printf("%d",b);
     return 0;
+
+
+
 }
-
-
-
-
-

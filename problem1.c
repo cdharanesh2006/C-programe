@@ -1,7 +1,9 @@
 #include<stdio.h>
-int main() 
+int main()
 {
-    printf("Hello World");
+    int a=10;
+    printf("%d\n",a);
+    int b=50;
+    printf("%d",b);
     return 0;
 }
-

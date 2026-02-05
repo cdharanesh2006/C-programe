@@ -1,6 +1,9 @@
-#include<stdio.h> 
+#include<stdio.h>
 int main()
 {
-    printf("Ravi");
+    int a=5,b=15;
+    printf("%d %d\n",a,b);
+    int c=20,d=40;
+    printf("%d %d",c,d);
     return 0;
 }
