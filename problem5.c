@@ -1,10 +1,8 @@
-#include<stdio.h>
-int main()
-{
-    int a;
-    scanf("%d",&a);
-    a--;
-    a--;
-    printf("%d",a);
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d %d", a >= b, a <= b);
     return 0;
 }
