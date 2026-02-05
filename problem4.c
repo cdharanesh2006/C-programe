@@ -1,7 +1,10 @@
 #include<stdio.h>
 int main()
 {
-    char ch='A';
-    printf("%c",ch);
+    int a;
+    scanf("%d",&a);
+    a++;
+    a++;
+    printf("%d",a);
     return 0;
 }

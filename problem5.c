@@ -1,6 +1,10 @@
 #include<stdio.h>
 int main()
 {
-    printf("%d",sizeof(int));
+    int a;
+    scanf("%d",&a);
+    a--;
+    a--;
+    printf("%d",a);
     return 0;
 }
