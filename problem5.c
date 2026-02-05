@@ -3,6 +3,8 @@
 int main() {
     int a, b;
     scanf("%d %d", &a, &b);
-    printf("%d", (a && b) || (a || b));
+    int rem = a % b;
+    a /= b;
+    printf("%d %d", a, rem);
     return 0;
 }
