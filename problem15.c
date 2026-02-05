@@ -1,8 +1,15 @@
-#include<stdio.h>
-int main()
-{
-    int a,b,c;
-    scanf("%d %d %d",&a,&b,&c);
-    printf("%d %d %d",a+b+c);
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+
+    scanf("%d %d %d", &a, &b, &c);
+
+    if (a > 0 && b > 0 && c > 0 && (a + b + c == 180)) {
+        printf("Valid triangle");
+    } else {
+        printf("Not a valid triangle");
+    }
+
     return 0;
 }
