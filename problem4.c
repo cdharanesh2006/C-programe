@@ -2,8 +2,14 @@
 
 int main() {
     int a, b;
+
     scanf("%d %d", &a, &b);
-    a *= b;
-    printf("%d", a);
+
+    if (a > b) {
+        printf("%d is greater", a);
+    } else {
+        printf("%d is greater", b);
+    }
+
     return 0;
 }

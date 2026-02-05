@@ -1,9 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
-    scanf("%d %d", &a, &b);
-    a += b;
-    printf("%d", a);
+    int num;
+    
+    scanf("%d", &num);
+
+    if (num % 2 == 0) {
+        printf("Even number");
+    } else {
+        printf("Odd number");
+    }
+
     return 0;
 }
