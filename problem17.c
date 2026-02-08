@@ -1,15 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int num;
+    int n, i;
+    int delay, totalDelay = 0, delayedCount = 0;
 
-    scanf("%d", &num);
+    scanf("%d", &n);
 
-    if (num >= 10 && num <= 20) {
-        printf("Number is within range");
-    } else {
-        printf("Number is out of range");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &delay);
+        totalDelay += delay;
+
+        if(delay > 30) {
+            delayedCount++;
+        }
     }
+
+    printf("Total Delay: %d\n", totalDelay);
+    printf("Delayed Deliveries: %d", delayedCount);
 
     return 0;
 }
