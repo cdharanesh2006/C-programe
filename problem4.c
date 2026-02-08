@@ -1,15 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
+    int salary, absentDays, i;
 
-    scanf("%d %d", &a, &b);
+    scanf("%d", &salary);
+    scanf("%d", &absentDays);
 
-    if (a > b) {
-        printf("%d is greater", a);
-    } else {
-        printf("%d is greater", b);
+    for(i = 0; i < absentDays; i++) {
+        salary = salary - 100;
     }
+
+    printf("Final Salary: ₹%d", salary);
 
     return 0;
 }

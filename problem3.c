@@ -1,15 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int num;
+    int n, i;
+    int units, total = 0;
 
-    scanf("%d", &num);
+    scanf("%d", &n);
 
-    if (num % 5 == 0) {
-        printf("Divisible by 5");
-    } else {
-        printf("Not divisible by 5");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &units);
+        total += units;
     }
+
+    printf("Total Units: %d", total);
 
     return 0;
 }
