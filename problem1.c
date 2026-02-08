@@ -1,22 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int expense, total = 0, overspend = 0;
+    int n;
+    int noise;
+    int i = 0;
+    int violations = 0;
+    int currentStreak = 0;
+    int maxStreak = 0;
 
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &expense);
-        total += expense;
+    while (i < n) {
+        scanf("%d", &noise);
 
-        if(expense > 1000) {
-            overspend++;
+        if (noise > 70) {
+            violations++;
+            currentStreak++;
+
+            if (currentStreak > maxStreak) {
+                maxStreak = currentStreak;
+            }
+        } else {
+            currentStreak = 0;  // streak breaks
         }
+
+        i++;
     }
 
-    printf("Total Expense: %d\n", total);
-    printf("Overspend Days: %d", overspend);
+    printf("Noise Violations: %d\n", violations);
+    printf("Longest Violation Streak: %d\n", maxStreak);
 
     return 0;
 }

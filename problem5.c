@@ -1,18 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int battery, n;
-    int drain;
+    int n;
+    int order;
+    int i = 0;
+    int success = 0;
+    int cancelled = 0;
 
-    scanf("%d", &battery);
     scanf("%d", &n);
 
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &drain);
-        battery = battery - drain;
+    while (i < n) {
+        scanf("%d", &order);
+
+        if (order == 1) {
+            success++;
+        } else if (order == 0) {
+            cancelled++;
+        }
+
+        i++;
     }
 
-    printf("Remaining Battery: %d", battery);
+    printf("Successful: %d\n", success);
+    printf("Cancelled: %d\n", cancelled);
+
+    if (cancelled > success) {
+        printf("Status: Risk\n");
+    } else {
+        printf("Status: Safe\n");
+    }
 
     return 0;
 }

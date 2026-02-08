@@ -1,16 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int salary, absentDays, i;
+    int n;
+    int status;
+    int i = 0;
+    int currentStreak = 0;
+    int maxStreak = 0;
 
-    scanf("%d", &salary);
-    scanf("%d", &absentDays);
+    scanf("%d", &n);
 
-    for(i = 0; i < absentDays; i++) {
-        salary = salary - 100;
+    while (i < n) {
+        scanf("%d", &status);
+
+        if (status == 0) {          // machine failed
+            currentStreak++;
+
+            if (currentStreak > maxStreak) {
+                maxStreak = currentStreak;
+            }
+        } else {                    // machine working
+            currentStreak = 0;
+        }
+
+        i++;
     }
 
-    printf("Final Salary: ₹%d", salary);
+    printf("Longest Failure Streak: %d\n", maxStreak);
 
     return 0;
 }
