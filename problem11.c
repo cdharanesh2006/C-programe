@@ -1,17 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
+    int n, i;
+    int patients, totalPatients = 0, overcrowdedDays = 0;
 
-    scanf("%d %d %d", &a, &b, &c);
+    scanf("%d", &n);
 
-    if (a >= b && a >= c) {
-        printf("%d is largest", a);
-    } else if (b >= a && b >= c) {
-        printf("%d is largest", b);
-    } else {
-        printf("%d is largest", c);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &patients);
+        totalPatients += patients;
+
+        if(patients > 100) {
+            overcrowdedDays++;
+        }
     }
+
+    printf("Total Patients: %d\n", totalPatients);
+    printf("Overcrowded Days: %d", overcrowdedDays);
 
     return 0;
 }

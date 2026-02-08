@@ -1,15 +1,32 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
+    int n, i;
+    int voltage, minVoltage, lowEvents = 0;
 
-    scanf("%d %d %d", &a, &b, &c);
+    scanf("%d", &n);
 
-    if (a > 0 && b > 0 && c > 0 && (a + b + c == 180)) {
-        printf("Valid triangle");
-    } else {
-        printf("Not a valid triangle");
+    scanf("%d", &voltage);
+    minVoltage = voltage;
+
+    if(voltage < 210) {
+        lowEvents++;
     }
+
+    for(i = 1; i < n; i++) {
+        scanf("%d", &voltage);
+
+        if(voltage < minVoltage) {
+            minVoltage = voltage;
+        }
+
+        if(voltage < 210) {
+            lowEvents++;
+        }
+    }
+
+    printf("Minimum Voltage: %d\n", minVoltage);
+    printf("Low Voltage Events: %d", lowEvents);
 
     return 0;
 }
