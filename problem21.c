@@ -1,35 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
-    char op;
+    int capacity, n, i;
+    int items;
+    int overflowDays = 0;
 
-    // Input: number operator number (e.g., 5 + 3)
-    scanf("%d %c %d", &a, &op, &b);
+    
+    scanf("%d", &capacity);
 
-    switch (op) {
-        case '+':
-            printf("Result = %d", a + b);
-            break;
+    
+    scanf("%d", &n);
 
-        case '-':
-            printf("Result = %d", a - b);
-            break;
+    for(i = 0; i < n; i++) {
+        scanf("%d", &items);
 
-        case '*':
-            printf("Result = %d", a * b);
-            break;
+        if(capacity >= 0 && capacity - items < 0) {
+            overflowDays++;
+        }
 
-        case '/':
-            if (b != 0)
-                printf("Result = %d", a / b);
-            else
-                printf("Division by zero not allowed");
-            break;
-
-        default:
-            printf("Invalid operator");
+        capacity -= items;
     }
+
+    printf("Remaining Capacity: %d\n", capacity);
+    printf("Overflow Days: %d", overflowDays);
 
     return 0;
 }

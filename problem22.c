@@ -1,36 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int day;
+    int n, i;
+    int risk, totalRisk = 0, highRiskCount = 0;
 
-    // Input: day number (1–7)
-    scanf("%d", &day);
+    scanf("%d", &n);
 
-    switch (day) {
-        case 1:
-            printf("Monday");
-            break;
-        case 2:
-            printf("Tuesday");
-            break;
-        case 3:
-            printf("Wednesday");
-            break;
-        case 4:
-            printf("Thursday");
-            break;
-        case 5:
-            printf("Friday");
-            break;
-        case 6:
-            printf("Saturday");
-            break;
-        case 7:
-            printf("Sunday");
-            break;
-        default:
-            printf("Invalid day");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &risk);
+        totalRisk += risk;
+
+        if(risk > 50) {
+            highRiskCount++;
+        }
     }
+
+    printf("Total Risk: %d\n", totalRisk);
+    printf("High Risk Sessions: %d", highRiskCount);
 
     return 0;
 }
