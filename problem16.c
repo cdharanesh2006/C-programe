@@ -1,27 +1,33 @@
 #include <stdio.h>
 
 int main() {
-    int initialCash, n, i;
-    int withdraw;
-    int remainingCash, riskCount = 0;
+    int maxWeight, n;
+    int currentWeight = 0;
+    int peopleEntered = 0;
+    int i = 0, weight;
 
-    scanf("%d", &initialCash);
-
+    scanf("%d", &maxWeight);
     scanf("%d", &n);
 
-    remainingCash = initialCash;
+    while (i < n) {
+        scanf("%d", &weight);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &withdraw);
-        remainingCash -= withdraw;
-
-        if(remainingCash < 5000) {
-            riskCount++;
+        if (currentWeight + weight > maxWeight) {
+            break;   // overload occurs
         }
+
+        currentWeight += weight;
+        peopleEntered++;
+        i++;
     }
 
-    printf("Remaining Cash: %d\n", remainingCash);
-    printf("Risk Count: %d", riskCount);
+    printf("People Entered: %d\n", peopleEntered);
+
+    if (peopleEntered < n) {
+        printf("Overload Status: Yes");
+    } else {
+        printf("Overload Status: No");
+    }
 
     return 0;
 }

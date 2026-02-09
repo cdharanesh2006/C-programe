@@ -1,26 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int hours, totalHours = 0, heavyDays = 0;
-    int overtimeCost;
+    int capacity, n;
+    int load;
+    int safeHours = 0, failureCount = 0;
+    int i = 0;
 
+    scanf("%d", &capacity);
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &hours);
-        totalHours += hours;
+    while (i < n) {
+        scanf("%d", &load);
 
-        if(hours > 3) {
-            heavyDays++;
+        if (load > capacity) {
+            failureCount++;
+        } else {
+            safeHours++;
         }
+
+        i++;
     }
 
-    overtimeCost = totalHours * 200;
-
-    printf("Total Overtime Hours: %d\n", totalHours);
-    printf("Overtime Cost: %d\n", overtimeCost);
-    printf("Heavy Overtime Days: %d", heavyDays);
+    printf("Safe Hours: %d\n", safeHours);
+    printf("Failure Count: %d");
 
     return 0;
 }

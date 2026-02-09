@@ -1,28 +1,42 @@
 #include <stdio.h>
 
 int main() {
-    int totalData, n, i;
-    int usage;
-    int successfulDays = 0;
-
-    scanf("%d", &totalData);
+    int n;
+    int prev, curr;
+    int i = 1;
+    int totalDrops = 0;
+    int consecutiveDrops = 0;
+    int crashDay = -1;
 
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &usage);
+    scanf("%d", &prev);   // first day index
 
-        if(totalData >= usage) {
-            totalData -= usage;
-            successfulDays++;
+    while (i < n) {
+        scanf("%d", &curr);
+
+        if (curr < prev) {
+            totalDrops++;
+            consecutiveDrops++;
+
+            if (consecutiveDrops == 3 && crashDay == -1) {
+                crashDay = i + 1;
+            }
         } else {
-            break;  
+            consecutiveDrops = 0;
         }
+
+        prev = curr;
+        i++;
     }
 
-   
-    printf("Remaining Data: %d\n", totalData);
-    printf("Successful Days: %d", successfulDays);
+    if (crashDay == -1) {
+        printf("Crash Day: Not Detected\n");
+    } else {
+        printf("Crash Day: %d\n", crashDay);
+    }
+
+    printf("Total Drops: %d");
 
     return 0;
 }

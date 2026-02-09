@@ -1,22 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int delay, totalDelay = 0, delayedCount = 0;
+    int walletBalance, n;
+    int purchase, success = 0;
+    int i = 0;
 
+    scanf("%d", &walletBalance);
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &delay);
-        totalDelay += delay;
+    while (i < n) {
+        scanf("%d", &purchase);
 
-        if(delay > 30) {
-            delayedCount++;
+        if (walletBalance < purchase) {
+            break;
         }
+
+        walletBalance -= purchase;
+        success++;
+        i++;
     }
 
-    printf("Total Delay: %d\n", totalDelay);
-    printf("Delayed Deliveries: %d", delayedCount);
+    printf("Successful Purchases: %d\n", success);
+    printf("Final Balance: %d", walletBalance);
 
     return 0;
 }
