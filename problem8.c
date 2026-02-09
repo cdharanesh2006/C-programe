@@ -1,22 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int loss, totalLoss = 0, highLossDays = 0;
+    int n;
+    int status;
+    int i = 0;
+    int currentStreak = 0;
+    int maxStreak = 0;
 
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &loss);
-        totalLoss += loss;
+    while (i < n) {
+        scanf("%d", &status);
 
-        if(loss > 100) {
-            highLossDays++;
+        if (status == 0) {          // EMI missed
+            currentStreak++;
+
+            if (currentStreak > maxStreak) {
+                maxStreak = currentStreak;
+            }
+        } else {                    // EMI paid
+            currentStreak = 0;
         }
+
+        i++;
     }
 
-    printf("Total Loss: %d\n", totalLoss);
-    printf("High Loss Days: %d", highLossDays);
+    printf("Longest Default Streak: %d\n", maxStreak);
 
     return 0;
 }

@@ -1,22 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int data, totalData = 0, highUsageDays = 0;
+    int n;
+    int hours;
+    int i = 0;
+    int inactiveWeeks = 0;
 
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &data);
-        totalData += data;
+    while (i < n) {
+        scanf("%d", &hours);
 
-        if(data > 2) {
-            highUsageDays++;
+        if (hours == 0) {
+            inactiveWeeks++;
         }
+
+        i++;
     }
 
-    printf("Total Data: %d\n", totalData);
-    printf("High Usage Days: %d", highUsageDays);
+    printf("Inactive Weeks: %d\n", inactiveWeeks);
+
+    if (inactiveWeeks >= 3) {
+        printf("Risk Status: High\n");
+    } else {
+        printf("Risk Status: Low\n");
+    }
 
     return 0;
 }

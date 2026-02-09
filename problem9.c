@@ -1,25 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int mark, total = 0, failed = 0;
-    int average;
+    int fuel, n;
+    int consumption;
+    int i = 0;
+    int trips = 0;
 
+    scanf("%d", &fuel);
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &mark);
-        total += mark;
+    while (i < n) {
+        scanf("%d", &consumption);
 
-        if(mark < 40) {
-            failed++;
+        if (fuel < consumption) {
+            break;   // not enough fuel for next trip
         }
+
+        fuel = fuel - consumption;
+        trips++;
+
+        i++;
     }
 
-    average = total / n;
-
-    printf("Average Score: %d\n", average);
-    printf("Failed Subjects: %d", failed);
+    printf("Completed Trips: %d\n", trips);
+    printf("Remaining Fuel: %d\n", fuel);
 
     return 0;
 }
+

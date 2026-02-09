@@ -1,22 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int rain, total = 0, heavyDays = 0;
+    int capacity, n;
+    int change;
+    int occupied = 0;
+    int criticalHours = 0;
+    int i = 0;
 
+    scanf("%d", &capacity);
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &rain);
-        total += rain;
+    while (i < n) {
+        scanf("%d", &change);
 
-        if(rain > 50) {
-            heavyDays++;
+        occupied = occupied + change;
+
+        if (occupied > (capacity * 90) / 100) {
+            criticalHours++;
         }
+
+        i++;
     }
 
-    printf("Total Rainfall: %d\n", total);
-    printf("Heavy Rain Days: %d", heavyDays);
+    printf("Final Occupied Beds: %d\n", occupied);
+    printf("Critical Hours: %d\n", criticalHours);
 
     return 0;
 }
