@@ -1,32 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int price, highest, highDays = 0;
+    int N, usage;
+    int maxUsage = 0;
+    int surgeCount = 0;
+    int i = 0;
 
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    scanf("%d", &price);
-    highest = price;
+    while (i < N) {
+        scanf("%d", &usage);
 
-    if(price > 100) {
-        highDays++;
-    }
-
-    for(i = 1; i < n; i++) {
-        scanf("%d", &price);
-
-        if(price > highest) {
-            highest = price;
+        if (usage > maxUsage) {
+            maxUsage = usage;
         }
 
-        if(price > 100) {
-            highDays++;
+        if (usage > 5) {
+            surgeCount++;
         }
+
+        i++;
     }
 
-    printf("Highest Price: %d\n", highest);
-    printf("High Price Days: %d", highDays);
+    printf("Max Usage: %d\n", maxUsage);
+    printf("Surge Hours: %d\n", surgeCount);
 
     return 0;
 }

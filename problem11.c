@@ -1,22 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int patients, totalPatients = 0, overcrowdedDays = 0;
+    int N;
+    int delay;
+    int totalDelay = 0;
+    int delayedDays = 0;
+    int i = 0;
 
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &patients);
-        totalPatients += patients;
+    while (i < N) {
+        scanf("%d", &delay);
 
-        if(patients > 100) {
-            overcrowdedDays++;
+        totalDelay += delay;
+
+        if (delay > 2) {
+            delayedDays++;
         }
+
+        i++;
     }
 
-    printf("Total Patients: %d\n", totalPatients);
-    printf("Overcrowded Days: %d", overcrowdedDays);
+    printf("Total Delay: %d\n", totalDelay);
+    printf("Delayed Days: %d\n", delayedDays);
 
     return 0;
 }
