@@ -1,23 +1,35 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int calls, totalCalls = 0, overloadedHours = 0;
+    int fuel, n;
+    int burn;
+    int i = 0;
+    int emergencyStage = -1;
+    int fuelWasted = 0;
 
-    
+    scanf("%d", &fuel);
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &calls);
-        totalCalls += calls;
+    while (i < n) {
+        scanf("%d", &burn);
 
-        if(calls > 40) {
-            overloadedHours++;
+        if (fuel - burn < 0 && emergencyStage == -1) {
+            emergencyStage = i + 1;
+            fuelWasted = burn - fuel;
+            break;
         }
+
+        fuel -= burn;
+        i++;
     }
 
-    printf("Total Calls: %d\n", totalCalls);
-    printf("Overloaded Hours: %d", overloadedHours);
+    if (emergencyStage == -1) {
+        printf("Emergency Stage: Not Occurred\n");
+        printf("Fuel Wasted: 0");
+    } else {
+        printf("Emergency Stage: %d\n", emergencyStage);
+        printf("Fuel Wasted: %d", fuelWasted);
+    }
 
     return 0;
 }

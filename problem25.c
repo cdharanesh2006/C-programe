@@ -1,34 +1,40 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int rate, maxRate, dangerCount = 0;
+    int n;
+    int amount;
+    int i = 0;
 
+    int highValueCount = 0;
+    int consecutiveHigh = 0;
+    int fraudAt = -1;
 
     scanf("%d", &n);
 
+    while (i < n) {
+        scanf("%d", &amount);
 
-    scanf("%d", &rate);
-    maxRate = rate;
+        if (amount >= 50000) {
+            highValueCount++;
+            consecutiveHigh++;
 
-    if(rate > 140) {
-        dangerCount++;
-    }
-
-    for(i = 1; i < n; i++) {
-        scanf("%d", &rate);
-
-        if(rate > maxRate) {
-            maxRate = rate;
+            if (consecutiveHigh == 3 && fraudAt == -1) {
+                fraudAt = i + 1;
+            }
+        } else {
+            consecutiveHigh = 0;
         }
 
-        if(rate > 140) {
-            dangerCount++;
-        }
+        i++;
     }
 
-    printf("Max Heart Rate: %d\n", maxRate);
-    printf("Danger Readings: %d", dangerCount);
+    if (fraudAt == -1) {
+        printf("Fraud Triggered At Attempt: Not Triggered\n");
+    } else {
+        printf("Fraud Triggered At Attempt: %d\n", fraudAt);
+    }
+
+    printf("High-Value Transactions: %d");
 
     return 0;
 }

@@ -1,22 +1,40 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int units, totalUnits = 0, spikeHours = 0;
+    int n;
+    int vibration;
+    int i = 0;
+
+    int unsafeCount = 0;
+    int consecutiveUnsafe = 0;
+    int breakdownAt = -1;
 
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &units);
-        totalUnits += units;
+    while (i < n) {
+        scanf("%d", &vibration);
 
-        if(units > 5) {
-            spikeHours++;
+        if (vibration > 70) {
+            unsafeCount++;
+            consecutiveUnsafe++;
+
+            if (consecutiveUnsafe == 3 && breakdownAt == -1) {
+                breakdownAt = i + 1;
+            }
+        } else {
+            consecutiveUnsafe = 0;
         }
+
+        i++;
     }
 
-    printf("Total Units: %d\n", totalUnits);
-    printf("Spike Hours: %d", spikeHours);
+    if (breakdownAt == -1) {
+        printf("Breakdown At Reading: Not Occurred\n");
+    } else {
+        printf("Breakdown At Reading: %d\n", breakdownAt);
+    }
+
+    printf("Unsafe Readings: %d");
 
     return 0;
 }

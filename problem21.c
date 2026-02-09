@@ -1,28 +1,33 @@
 #include <stdio.h>
 
 int main() {
-    int capacity, n, i;
-    int items;
-    int overflowDays = 0;
+    int n;
+    int vehicles;
+    int congestionMinutes = 0;
+    int currentStreak = 0, longestStreak = 0;
+    int i = 0;
 
-    
-    scanf("%d", &capacity);
-
-    
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &items);
+    while (i < n) {
+        scanf("%d", &vehicles);
 
-        if(capacity >= 0 && capacity - items < 0) {
-            overflowDays++;
+        if (vehicles > 20) {
+            congestionMinutes++;
+            currentStreak++;
+
+            if (currentStreak > longestStreak) {
+                longestStreak = currentStreak;
+            }
+        } else {
+            currentStreak = 0;
         }
 
-        capacity -= items;
+        i++;
     }
 
-    printf("Remaining Capacity: %d\n", capacity);
-    printf("Overflow Days: %d", overflowDays);
+    printf("Congestion Minutes: %d\n", congestionMinutes);
+    printf("Longest Congestion Streak: %d");
 
     return 0;
 }

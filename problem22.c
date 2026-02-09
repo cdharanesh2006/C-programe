@@ -1,22 +1,39 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int risk, totalRisk = 0, highRiskCount = 0;
+    int n;
+    int attempt;
+    int i = 0;
+    int totalFailures = 0;
+    int consecutiveFailures = 0;
+    int lockAt = -1;
 
     scanf("%d", &n);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &risk);
-        totalRisk += risk;
+    while (i < n) {
+        scanf("%d", &attempt);
 
-        if(risk > 50) {
-            highRiskCount++;
+        if (attempt == 0) {
+            totalFailures++;
+            consecutiveFailures++;
+
+            if (consecutiveFailures == 3 && lockAt == -1) {
+                lockAt = i + 1;
+            }
+        } else {
+            consecutiveFailures = 0;
         }
+
+        i++;
     }
 
-    printf("Total Risk: %d\n", totalRisk);
-    printf("High Risk Sessions: %d", highRiskCount);
+    if (lockAt == -1) {
+        printf("Lock Triggered At Attempt: Not Locked\n");
+    } else {
+        printf("Lock Triggered At Attempt: %d\n", lockAt);
+    }
+
+    printf("Total Failed Attempts: %d");
 
     return 0;
 }
