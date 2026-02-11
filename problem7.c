@@ -1,29 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int capacity, n;
-    int change;
-    int occupied = 0;
-    int criticalHours = 0;
-    int i = 0;
+    int N, sum = 0;
 
-    scanf("%d", &capacity);
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    while (i < n) {
-        scanf("%d", &change);
-
-        occupied = occupied + change;
-
-        if (occupied > (capacity * 90) / 100) {
-            criticalHours++;
-        }
-
-        i++;
+    for (int i = 2; i <= N; i += 2) {
+        sum += i;
     }
 
-    printf("Final Occupied Beds: %d\n", occupied);
-    printf("Critical Hours: %d\n", criticalHours);
+    printf("%d", sum);
 
     return 0;
 }

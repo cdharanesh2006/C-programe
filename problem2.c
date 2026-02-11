@@ -1,21 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int amount, total = 0;
+    int N, sum = 0;
 
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &amount);
-        total += amount;
+    for (int i = 1; i <= N; i++) {
+        for (int j = i; j <= i; j++) {
+            sum = sum + j;
+        }
     }
 
-    if(total > 10000) {
-        printf("Limit Exceeded");
-    } else {
-        printf("Approved");
-    }
+    printf("%d", sum);
 
     return 0;
 }

@@ -1,36 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    int maxWeight, n;
-    int weight;
-    int i = 0;
-    int totalWeight = 0;
-    int passengersAllowed = 0;
-    int overload = 0;
+    int N;
+    long long factorial = 1;
 
-    scanf("%d", &maxWeight);
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    while (i < n) {
-        scanf("%d", &weight);
-
-        if (totalWeight + weight > maxWeight) {
-            overload = 1;
-            break;
-        }
-
-        totalWeight += weight;
-        passengersAllowed++;
-        i++;
+    for (int i = 1; i <= N; i++) {
+        factorial *= i;
     }
 
-    printf("Passengers Allowed: %d\n", passengersAllowed);
-
-    if (overload == 1) {
-        printf("Overload: Yes\n");
-    } else {
-        printf("Overload: No\n");
-    }
+    printf("%lld", factorial);
 
     return 0;
 }

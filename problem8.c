@@ -1,31 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int n;
-    int status;
-    int i = 0;
-    int currentStreak = 0;
-    int maxStreak = 0;
+    int N, rev = 0;
 
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    while (i < n) {
-        scanf("%d", &status);
-
-        if (status == 0) {          // EMI missed
-            currentStreak++;
-
-            if (currentStreak > maxStreak) {
-                maxStreak = currentStreak;
-            }
-        } else {                    // EMI paid
-            currentStreak = 0;
-        }
-
-        i++;
+    for (; N > 0; N = N / 10) {
+        rev = rev * 10 + (N % 10);
     }
 
-    printf("Longest Default Streak: %d\n", maxStreak);
+    printf("%d", rev);
 
     return 0;
 }
