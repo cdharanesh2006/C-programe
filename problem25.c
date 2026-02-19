@@ -1,34 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int rate, maxRate, dangerCount = 0;
+    int choice, a, b;
 
+    printf("Sum\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
 
-    scanf("%d", &n);
+    switch (choice) {
+        case 1:
+            scanf("%d %d", &a, &b);
+            printf("Sum = %d", a + b);
+            break;
 
-
-    scanf("%d", &rate);
-    maxRate = rate;
-
-    if(rate > 140) {
-        dangerCount++;
+        default:
+            printf("Invalid choice");
     }
-
-    for(i = 1; i < n; i++) {
-        scanf("%d", &rate);
-
-        if(rate > maxRate) {
-            maxRate = rate;
-        }
-
-        if(rate > 140) {
-            dangerCount++;
-        }
-    }
-
-    printf("Max Heart Rate: %d\n", maxRate);
-    printf("Danger Readings: %d", dangerCount);
 
     return 0;
 }

@@ -1,23 +1,32 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int calls, totalCalls = 0, overloadedHours = 0;
+    char ch;
+    scanf("%c", &ch);
 
-    
-    scanf("%d", &n);
-
-    for(i = 0; i < n; i++) {
-        scanf("%d", &calls);
-        totalCalls += calls;
-
-        if(calls > 40) {
-            overloadedHours++;
-        }
+    switch (ch)
+    {
+        case '1':
+            printf("a");
+            break;
+        case '2':
+            printf("e");
+            break;
+        case '3':
+            printf("i");
+            break;
+        case '4':
+            printf("o");
+            break;
+        case '5':
+            printf("u");
+            break;
+        case '6':
+            printf("Vowel");
+            break;
+        default:
+            printf("Invalid Vowel");
+            break;
     }
-
-    printf("Total Calls: %d\n", totalCalls);
-    printf("Overloaded Hours: %d", overloadedHours);
-
     return 0;
 }
