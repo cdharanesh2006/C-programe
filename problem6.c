@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int fare, total = 0;
+    int N;
+    long long factorial = 1;
 
-    scanf("%d", &n);
+    scanf("%d", &N);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &fare);
-        total += fare;
+    for (int i = 1; i <= N; i++) {
+        factorial *= i;
     }
 
-    printf("Total Collection: ₹%d", total);
+    printf("%lld", factorial);
 
     return 0;
 }
