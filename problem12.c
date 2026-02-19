@@ -1,32 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int price, highest, highDays = 0;
+    int marks;
 
-    scanf("%d", &n);
+    scanf("%d", &marks);
 
-    scanf("%d", &price);
-    highest = price;
-
-    if(price > 100) {
-        highDays++;
+    if (marks >= 90) {
+        printf("Grade A");
+    } else if (marks >= 75 && marks < 90) {
+        printf("Grade B");
+    } else if (marks >= 60 && marks < 75) {
+        printf("Grade C");
+    } else if (marks >= 50 && marks < 60) {
+        printf("Grade D");
+    } else {
+        printf("Grade F");
     }
-
-    for(i = 1; i < n; i++) {
-        scanf("%d", &price);
-
-        if(price > highest) {
-            highest = price;
-        }
-
-        if(price > 100) {
-            highDays++;
-        }
-    }
-
-    printf("Highest Price: %d\n", highest);
-    printf("High Price Days: %d", highDays);
 
     return 0;
 }

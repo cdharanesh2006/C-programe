@@ -1,22 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int errors, totalErrors = 0, criticalHours = 0;
+    char ch;
 
-    scanf("%d", &n);
+    scanf(" %c", &ch);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &errors);
-        totalErrors += errors;
-
-        if(errors > 50) {
-            criticalHours++;
-        }
+    if (ch >= 'A' && ch <= 'Z') {
+        printf("Uppercase letter");
+    } else if (ch >= 'a' && ch <= 'z') {
+        printf("Lowercase letter");
+    } else {
+        printf("Not an alphabet");
     }
-
-    printf("Total Errors: %d\n", totalErrors);
-    printf("Critical Hours: %d", criticalHours);
 
     return 0;
 }

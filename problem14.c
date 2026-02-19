@@ -1,22 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int revenue, totalRevenue = 0, targetDays = 0;
+    int num;
 
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &revenue);
-        totalRevenue += revenue;
-
-        if(revenue > 50000) {
-            targetDays++;
-        }
+    if (num % 11 == 0) {
+        printf("Divisible by 11");
+    } else {
+        printf("Not divisible by 11");
     }
-
-    printf("Total Revenue: %d\n", totalRevenue);
-    printf("Target Days: %d", targetDays);
 
     return 0;
 }
