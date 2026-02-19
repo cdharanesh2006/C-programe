@@ -1,25 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int mark, total = 0, failed = 0;
-    int average;
+    int age;
 
-    scanf("%d", &n);
+    scanf("%d", &age);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &mark);
-        total += mark;
-
-        if(mark < 40) {
-            failed++;
-        }
+    if (age >= 18) {
+        printf("Eligible to vote");
+    } else {
+        printf("Not eligible to vote");
     }
-
-    average = total / n;
-
-    printf("Average Score: %d\n", average);
-    printf("Failed Subjects: %d", failed);
 
     return 0;
 }

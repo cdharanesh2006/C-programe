@@ -1,22 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int rain, total = 0, heavyDays = 0;
+    char ch;
 
-    scanf("%d", &n);
+    scanf(" %c", &ch);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &rain);
-        total += rain;
-
-        if(rain > 50) {
-            heavyDays++;
-        }
+    if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+        printf("Alphabet");
+    } else if (ch >= '0' && ch <= '9') {
+        printf("Digit");
+    } else {
+        printf("Special Character");
     }
-
-    printf("Total Rainfall: %d\n", total);
-    printf("Heavy Rain Days: %d", heavyDays);
 
     return 0;
 }

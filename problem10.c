@@ -1,22 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int data, totalData = 0, highUsageDays = 0;
+    int num;
 
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &data);
-        totalData += data;
-
-        if(data > 2) {
-            highUsageDays++;
-        }
+    if (num >= 100 && num <= 999) {
+        printf("Three-digit number");
+    } else {
+        printf("Not a three-digit number");
     }
-
-    printf("Total Data: %d\n", totalData);
-    printf("High Usage Days: %d", highUsageDays);
 
     return 0;
 }

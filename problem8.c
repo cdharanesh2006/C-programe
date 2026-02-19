@@ -1,22 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int loss, totalLoss = 0, highLossDays = 0;
+    int num;
 
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &loss);
-        totalLoss += loss;
-
-        if(loss > 100) {
-            highLossDays++;
-        }
+    if (num % 3 == 0 && num % 7 == 0) {
+        printf("Multiple of both 3 and 7");
+    } else {
+        printf("Not a multiple of both 3 and 7");
     }
-
-    printf("Total Loss: %d\n", totalLoss);
-    printf("High Loss Days: %d", highLossDays);
 
     return 0;
 }
