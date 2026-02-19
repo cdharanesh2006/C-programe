@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    int units, totalUnits = 0, spikeHours = 0;
+
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        scanf("%d", &units);
+        totalUnits += units;
+
+        if(units > 5) {
+            spikeHours++;
+        }
+    }
+
+    printf("Total Units: %d\n", totalUnits);
+    printf("Spike Hours: %d", spikeHours);
+
+    return 0;
+}
