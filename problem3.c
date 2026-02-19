@@ -1,30 +1,14 @@
 #include <stdio.h>
 
 int main() {
-    int totalData;
-    int n;
-    int usage;
-    int daysUsed = 0;
-    int i = 0;
+    int N;
+    scanf("%d", &N);
 
-    scanf("%d", &totalData);
-    scanf("%d", &n);
-
-    while (i < n && totalData > 0) {
-        scanf("%d", &usage);
-
-        totalData = totalData - usage;
-        daysUsed++;
-
-        i++;
+    for(int i = 2; i <= N; i++) {
+        if(i % 2 == 0) {
+            printf("%d ", i);
+        }
     }
-
-    if (totalData < 0) {
-        totalData = 0;
-    }
-
-    printf("Days Used: %d\n", daysUsed);
-    printf("Remaining Data: %dGB\n", totalData);
 
     return 0;
 }

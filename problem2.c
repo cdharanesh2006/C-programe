@@ -1,15 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int num;
-    
-    scanf("%d", &num);
+    int N, sum = 0;
 
-    if (num % 2 == 0) {
-        printf("Even number");
-    } else {
-        printf("Odd number");
+    scanf("%d", &N);
+
+    for (int i = 1; i <= N; i++) {
+        for (int j = i; j <= i; j++) {
+            sum = sum + j;
+        }
     }
+
+    printf("%d", sum);
 
     return 0;
 }
