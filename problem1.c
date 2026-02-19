@@ -1,22 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int expense, total = 0, overspend = 0;
+    int num;
 
-    scanf("%d", &n);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &expense);
-        total += expense;
-
-        if(expense > 1000) {
-            overspend++;
-        }
+    if (num > 0) {
+        printf("Positive number");
+    } else if (num < 0) {
+        printf("Negative number");
+    } else {
+        printf("Zero");
     }
-
-    printf("Total Expense: %d\n", total);
-    printf("Overspend Days: %d", overspend);
 
     return 0;
 }

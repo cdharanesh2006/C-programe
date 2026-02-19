@@ -1,18 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int battery, n;
-    int drain;
+    int year;
 
-    scanf("%d", &battery);
-    scanf("%d", &n);
+    scanf("%d", &year);
 
-    for(int i = 0; i < n; i++) {
-        scanf("%d", &drain);
-        battery = battery - drain;
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        printf("Leap year");
+    } else {
+        printf("Not a leap year");
     }
-
-    printf("Remaining Battery: %d", battery);
 
     return 0;
 }

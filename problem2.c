@@ -1,20 +1,14 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int amount, total = 0;
+    int num;
+    
+    scanf("%d", &num);
 
-    scanf("%d", &n);
-
-    for(i = 0; i < n; i++) {
-        scanf("%d", &amount);
-        total += amount;
-    }
-
-    if(total > 10000) {
-        printf("Limit Exceeded");
+    if (num % 2 == 0) {
+        printf("Even number");
     } else {
-        printf("Approved");
+        printf("Odd number");
     }
 
     return 0;
