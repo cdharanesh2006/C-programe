@@ -1,27 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int initialCash, n, i;
-    int withdraw;
-    int remainingCash, riskCount = 0;
+    int a, b, c;
 
-    scanf("%d", &initialCash);
+    scanf("%d %d %d", &a, &b, &c);
 
-    scanf("%d", &n);
-
-    remainingCash = initialCash;
-
-    for(i = 0; i < n; i++) {
-        scanf("%d", &withdraw);
-        remainingCash -= withdraw;
-
-        if(remainingCash < 5000) {
-            riskCount++;
-        }
+    if (a == b && b == c) {
+        printf("Equilateral triangle");
+    } else if (a == b || b == c || a == c) {
+        printf("Isosceles triangle");
+    } else {
+        printf("Scalene triangle");
     }
-
-    printf("Remaining Cash: %d\n", remainingCash);
-    printf("Risk Count: %d", riskCount);
 
     return 0;
 }

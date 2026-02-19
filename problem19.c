@@ -1,32 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int noise, maxNoise, noisyPeriods = 0;
+    char ch;
 
-    scanf("%d", &n);
+    scanf(" %c", &ch);
 
-    scanf("%d", &noise);
-    maxNoise = noise;
-
-    if(noise > 70) {
-        noisyPeriods++;
+    if (ch >= '0' && ch <= '9') {
+        printf("Digit");
+    } else {
+        printf("Not a digit");
     }
-
-    for(i = 1; i < n; i++) {
-        scanf("%d", &noise);
-
-        if(noise > maxNoise) {
-            maxNoise = noise;
-        }
-
-        if(noise > 70) {
-            noisyPeriods++;
-        }
-    }
-
-    printf("Maximum Noise: %d\n", maxNoise);
-    printf("Noisy Periods: %d", noisyPeriods);
 
     return 0;
 }

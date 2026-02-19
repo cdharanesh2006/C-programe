@@ -1,28 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    int totalData, n, i;
-    int usage;
-    int successfulDays = 0;
+    int a, b, smallest;
 
-    scanf("%d", &totalData);
+    scanf("%d %d", &a, &b);
 
-    scanf("%d", &n);
+    smallest = (a < b) ? a : b;
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &usage);
-
-        if(totalData >= usage) {
-            totalData -= usage;
-            successfulDays++;
-        } else {
-            break;  
-        }
-    }
-
-   
-    printf("Remaining Data: %d\n", totalData);
-    printf("Successful Days: %d", successfulDays);
+    printf("%d is smallest", smallest);
 
     return 0;
 }
