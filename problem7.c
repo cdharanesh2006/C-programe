@@ -1,17 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    char ch;
+    int capacity, n;
+    int change;
+    int occupied = 0;
+    int criticalHours = 0;
+    int i = 0;
 
-    scanf(" %c", &ch);
+    scanf("%d", &capacity);
+    scanf("%d", &n);
 
-    if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
-        printf("Alphabet");
-    } else if (ch >= '0' && ch <= '9') {
-        printf("Digit");
-    } else {
-        printf("Special Character");
+    while (i < n) {
+        scanf("%d", &change);
+
+        occupied = occupied + change;
+
+        if (occupied > (capacity * 90) / 100) {
+            criticalHours++;
+        }
+
+        i++;
     }
+
+    printf("Final Occupied Beds: %d\n", occupied);
+    printf("Critical Hours: %d\n", criticalHours);
 
     return 0;
 }

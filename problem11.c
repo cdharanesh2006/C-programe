@@ -1,17 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
+    int N;
+    int delay;
+    int totalDelay = 0;
+    int delayedDays = 0;
+    int i = 0;
 
-    scanf("%d %d %d", &a, &b, &c);
+    scanf("%d", &N);
 
-    if (a >= b && a >= c) {
-        printf("%d is largest", a);
-    } else if (b >= a && b >= c) {
-        printf("%d is largest", b);
-    } else {
-        printf("%d is largest", c);
+    while (i < N) {
+        scanf("%d", &delay);
+
+        totalDelay += delay;
+
+        if (delay > 2) {
+            delayedDays++;
+        }
+
+        i++;
     }
+
+    printf("Total Delay: %d\n", totalDelay);
+    printf("Delayed Days: %d\n", delayedDays);
 
     return 0;
 }

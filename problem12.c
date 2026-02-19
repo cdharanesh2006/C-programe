@@ -1,21 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int marks;
+    int N, usage;
+    int maxUsage = 0;
+    int surgeCount = 0;
+    int i = 0;
 
-    scanf("%d", &marks);
+    scanf("%d", &N);
 
-    if (marks >= 90) {
-        printf("Grade A");
-    } else if (marks >= 75 && marks < 90) {
-        printf("Grade B");
-    } else if (marks >= 60 && marks < 75) {
-        printf("Grade C");
-    } else if (marks >= 50 && marks < 60) {
-        printf("Grade D");
-    } else {
-        printf("Grade F");
+    while (i < N) {
+        scanf("%d", &usage);
+
+        if (usage > maxUsage) {
+            maxUsage = usage;
+        }
+
+        if (usage > 5) {
+            surgeCount++;
+        }
+
+        i++;
     }
+
+    printf("Max Usage: %d\n", maxUsage);
+    printf("Surge Hours: %d\n", surgeCount);
 
     return 0;
 }
