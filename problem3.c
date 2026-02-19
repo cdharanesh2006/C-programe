@@ -1,15 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int num;
+    int totalData;
+    int n;
+    int usage;
+    int daysUsed = 0;
+    int i = 0;
 
-    scanf("%d", &num);
+    scanf("%d", &totalData);
+    scanf("%d", &n);
 
-    if (num % 5 == 0) {
-        printf("Divisible by 5");
-    } else {
-        printf("Not divisible by 5");
+    while (i < n && totalData > 0) {
+        scanf("%d", &usage);
+
+        totalData = totalData - usage;
+        daysUsed++;
+
+        i++;
     }
+
+    if (totalData < 0) {
+        totalData = 0;
+    }
+
+    printf("Days Used: %d\n", daysUsed);
+    printf("Remaining Data: %dGB\n", totalData);
 
     return 0;
 }

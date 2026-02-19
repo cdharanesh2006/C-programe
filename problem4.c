@@ -1,15 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
+    int n;
+    int status;
+    int i = 0;
+    int currentStreak = 0;
+    int maxStreak = 0;
 
-    scanf("%d %d", &a, &b);
+    scanf("%d", &n);
 
-    if (a > b) {
-        printf("%d is greater", a);
-    } else {
-        printf("%d is greater", b);
+    while (i < n) {
+        scanf("%d", &status);
+
+        if (status == 0) {          // machine failed
+            currentStreak++;
+
+            if (currentStreak > maxStreak) {
+                maxStreak = currentStreak;
+            }
+        } else {                    // machine working
+            currentStreak = 0;
+        }
+
+        i++;
     }
+
+    printf("Longest Failure Streak: %d\n", maxStreak);
 
     return 0;
 }

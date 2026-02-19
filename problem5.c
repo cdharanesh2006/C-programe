@@ -1,14 +1,33 @@
 #include <stdio.h>
 
 int main() {
-    int year;
+    int n;
+    int order;
+    int i = 0;
+    int success = 0;
+    int cancelled = 0;
 
-    scanf("%d", &year);
+    scanf("%d", &n);
 
-    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-        printf("Leap year");
+    while (i < n) {
+        scanf("%d", &order);
+
+        if (order == 1) {
+            success++;
+        } else if (order == 0) {
+            cancelled++;
+        }
+
+        i++;
+    }
+
+    printf("Successful: %d\n", success);
+    printf("Cancelled: %d\n", cancelled);
+
+    if (cancelled > success) {
+        printf("Status: Risk\n");
     } else {
-        printf("Not a leap year");
+        printf("Status: Safe\n");
     }
 
     return 0;

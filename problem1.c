@@ -1,18 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int num;
+    int n;
+    int noise;
+    int i = 0;
+    int violations = 0;
+    int currentStreak = 0;
+    int maxStreak = 0;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    scanf("%d", &n);
 
-    if (num > 0) {
-        printf("Positive number");
-    } else if (num < 0) {
-        printf("Negative number");
-    } else {
-        printf("Zero");
+    while (i < n) {
+        scanf("%d", &noise);
+
+        if (noise > 70) {
+            violations++;
+            currentStreak++;
+
+            if (currentStreak > maxStreak) {
+                maxStreak = currentStreak;
+            }
+        } else {
+            currentStreak = 0;  // streak breaks
+        }
+
+        i++;
     }
+
+    printf("Noise Violations: %d\n", violations);
+    printf("Longest Violation Streak: %d\n", maxStreak);
 
     return 0;
 }
