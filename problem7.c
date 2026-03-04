@@ -1,28 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0, count = 0;
 
-    int a[R][C];
-    for (int i = 0; i < R; i++)
-        for (int j = 0; j < C; j++)
-            scanf("%d", &a[i][j]);
+    printf("Enter text: ");
+    scanf("%s", str);
 
-    int count = 0;
+    while(str[i] != '\0') {
+        char ch = str[i];
 
-    for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
-            int minRow = 1, maxCol = 1;
-
-            for (int k = 0; k < C; k++)
-                if (a[i][j] > a[i][k]) minRow = 0;
-
-            for (int k = 0; k < R; k++)
-                if (a[i][j] < a[k][j]) maxCol = 0;
-
-            if (minRow && maxCol) count++;
+        if((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+            if(!(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+                 ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')) {
+                count++;
+            }
         }
+        i++;
     }
 
     printf("%d", count);

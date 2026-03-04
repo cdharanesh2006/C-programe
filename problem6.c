@@ -1,23 +1,21 @@
 #include <stdio.h>
-#include <limits.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0, count = 0;
 
-    int a[R][C];
-    int minSum = INT_MAX, maxSum = INT_MIN;
+    printf("Enter text: ");
+    scanf("%s", str);
 
-    for (int i = 0; i < R; i++) {
-        int sum = 0;
-        for (int j = 0; j < C; j++) {
-            scanf("%d", &a[i][j]);
-            sum += a[i][j];
+    while(str[i] != '\0') {
+        char ch = str[i];
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+           ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U') {
+            count++;
         }
-        if (sum < minSum) minSum = sum;
-        if (sum > maxSum) maxSum = sum;
+        i++;
     }
 
-    printf("%d", maxSum - minSum);
+    printf("%d", count);
     return 0;
 }
