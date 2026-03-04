@@ -1,23 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int evenCount = 0, oddCount = 0;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    for (int i = 0; i < R; i++)
+        for (int j = 0; j < C; j++)
+            scanf("%d", &a[i][j]);
 
-    int days[n];
+    int count = 0;
 
-    for (i = 0; i < n; i++) {
-        scanf("%d", &days[i]);
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            int minRow = 1, maxCol = 1;
 
-        if (days[i] % 2 == 0)
-            evenCount++;
-        else
-            oddCount++;
+            for (int k = 0; k < C; k++)
+                if (a[i][j] > a[i][k]) minRow = 0;
+
+            for (int k = 0; k < R; k++)
+                if (a[i][j] < a[k][j]) maxCol = 0;
+
+            if (minRow && maxCol) count++;
+        }
     }
 
-    printf("Even:%d Odd:%d", evenCount, oddCount);
-
+    printf("%d", count);
     return 0;
 }
