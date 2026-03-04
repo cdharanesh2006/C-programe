@@ -1,17 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int N, sum = 0;
+    int N, X, count = 0;
 
     scanf("%d", &N);
 
-    for (int i = 1; i <= N; i++) {
-        for (int j = i; j <= i; j++) {
-            sum = sum + j;
+    int marks[N];
+
+    for(int i = 0; i < N; i++) {
+        scanf("%d", &marks[i]);
+    }
+
+    scanf("%d", &X);
+
+    for(int i = 0; i < N; i++) {
+        if(marks[i] == X) {
+            count++;
         }
     }
 
-    printf("%d", sum);
+    printf("%d", count);
 
     return 0;
 }

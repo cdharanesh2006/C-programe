@@ -1,14 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int N;
-    scanf("%d", &N);
+    int n, i, sorted = 1;
 
-    for(int i = 2; i <= N; i++) {
-        if(i % 2 == 0) {
-            printf("%d ", i);
+    scanf("%d", &n);
+
+    int sales[n];
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &sales[i]);
+    }
+
+
+    for (i = 0; i < n - 1; i++) {
+        if (sales[i] > sales[i + 1]) {
+            sorted = 0;
+            break;
         }
     }
+
+    if (sorted)
+        printf("Yes");
+    else
+        printf("No");
 
     return 0;
 }
