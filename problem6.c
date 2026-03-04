@@ -1,16 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int N;
-    long long factorial = 1;
+    int n, i, j, isDuplicate;
 
-    scanf("%d", &N);
+    scanf("%d", &n);
 
-    for (int i = 1; i <= N; i++) {
-        factorial *= i;
+    int ids[n];
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &ids[i]);
     }
 
-    printf("%lld", factorial);
+    for (i = 0; i < n; i++) {
+        isDuplicate = 0;
+
+        for (j = 0; j < i; j++) {
+            if (ids[i] == ids[j]) {
+                isDuplicate = 1;
+                break;
+            }
+        }
+
+        if (!isDuplicate) {
+            printf("%d ", ids[i]);
+        }
+    }
 
     return 0;
 }
