@@ -1,21 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int expectedSum, actualSum = 0;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    for (int i = 0; i < R; i++)
+        for (int j = 0; j < C; j++)
+            scanf("%d", &a[i][j]);
 
-    int roll[n - 1];
+    int minIndex = 0;
+    int minSum = 0;
 
-    for (i = 0; i < n - 1; i++) {
-        scanf("%d", &roll[i]);
-        actualSum += roll[i];
+    for (int j = 0; j < C; j++)
+        minSum += a[0][j];
+
+    for (int i = 1; i < R; i++) {
+        int sum = 0;
+        for (int j = 0; j < C; j++)
+            sum += a[i][j];
+
+        if (sum < minSum) {
+            minSum = sum;
+            minIndex = i;
+        }
     }
 
-    expectedSum = n * (n + 1) / 2;
-
-    printf("%d", expectedSum - actualSum);
-
+    printf("%d", minIndex);
     return 0;
 }

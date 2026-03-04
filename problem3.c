@@ -1,28 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, sorted = 1;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    for (int i = 0; i < R; i++)
+        for (int j = 0; j < C; j++)
+            scanf("%d", &a[i][j]);
 
-    int sales[n];
+    int maxUnique = 0, index = 0;
 
-    for (i = 0; i < n; i++) {
-        scanf("%d", &sales[i]);
-    }
-
-
-    for (i = 0; i < n - 1; i++) {
-        if (sales[i] > sales[i + 1]) {
-            sorted = 0;
-            break;
+    for (int i = 0; i < R; i++) {
+        int count = 0;
+        for (int j = 0; j < C; j++) {
+            int unique = 1;
+            for (int k = 0; k < j; k++) {
+                if (a[i][j] == a[i][k]) {
+                    unique = 0;
+                    break;
+                }
+            }
+            if (unique) count++;
+        }
+        if (count > maxUnique) {
+            maxUnique = count;
+            index = i;
         }
     }
 
-    if (sorted)
-        printf("Yes");
-    else
-        printf("No");
-
+    printf("%d", index);
     return 0;
 }

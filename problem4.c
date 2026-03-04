@@ -1,28 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    for (int i = 0; i < R; i++)
+        for (int j = 0; j < C; j++)
+            scanf("%d", &a[i][j]);
 
-    int stops[n];
-
-    for (i = 0; i < n; i++) {
-        scanf("%d", &stops[i]);
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            for (int x = i; x < R; x++) {
+                for (int y = (x == i ? j + 1 : 0); y < C; y++) {
+                    if (a[i][j] == a[x][y]) {
+                        printf("%d", a[i][j]);
+                        return 0;
+                    }
+                }
+            }
+        }
     }
-
-    int start = 0, end = n - 1;
-    while (start < end) {
-        int temp = stops[start];
-        stops[start] = stops[end];
-        stops[end] = temp;
-        start++;
-        end--;
-    }
-
-    for (i = 0; i < n; i++) {
-        printf("%d ", stops[i]);
-    }
-
     return 0;
 }
