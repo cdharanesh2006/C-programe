@@ -1,25 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0, length = 0;
 
-    int a[R][C];
-    for (int i = 0; i < R; i++)
-        for (int j = 0; j < C; j++)
-            scanf("%d", &a[i][j]);
+    printf("Enter text: ");
+    scanf("%s", str);
 
-    for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
-            for (int x = i; x < R; x++) {
-                for (int y = (x == i ? j + 1 : 0); y < C; y++) {
-                    if (a[i][j] == a[x][y]) {
-                        printf("%d", a[i][j]);
-                        return 0;
-                    }
-                }
-            }
-        }
+    while(str[length] != '\0') {
+        length++;
     }
+
+    for(i = length - 1; i >= 0; i--) {
+        printf("%c", str[i]);
+    }
+
     return 0;
 }

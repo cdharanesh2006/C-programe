@@ -1,31 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0, length = 0, flag = 1;
 
-    int a[R][C];
-    for (int i = 0; i < R; i++)
-        for (int j = 0; j < C; j++)
-            scanf("%d", &a[i][j]);
+    printf("Enter code: ");
+    scanf("%s", str);
 
-    int minIndex = 0;
-    int minSum = 0;
+    while(str[length] != '\0') {
+        length++;
+    }
 
-    for (int j = 0; j < C; j++)
-        minSum += a[0][j];
-
-    for (int i = 1; i < R; i++) {
-        int sum = 0;
-        for (int j = 0; j < C; j++)
-            sum += a[i][j];
-
-        if (sum < minSum) {
-            minSum = sum;
-            minIndex = i;
+    for(i = 0; i < length/2; i++) {
+        if(str[i] != str[length - i - 1]) {
+            flag = 0;
+            break;
         }
     }
 
-    printf("%d", minIndex);
+    if(flag)
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+
     return 0;
 }
