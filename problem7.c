@@ -1,15 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int N, sum = 0;
+    int n, i;
+    int evenCount = 0, oddCount = 0;
 
-    scanf("%d", &N);
+    scanf("%d", &n);
 
-    for (int i = 2; i <= N; i += 2) {
-        sum += i;
+    int days[n];
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &days[i]);
+
+        if (days[i] % 2 == 0)
+            evenCount++;
+        else
+            oddCount++;
     }
 
-    printf("%d", sum);
+    printf("Even:%d Odd:%d", evenCount, oddCount);
 
     return 0;
 }

@@ -1,15 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int N, rev = 0;
+    int n, k, i;
 
-    scanf("%d", &N);
+    scanf("%d", &n);
 
-    for (; N > 0; N = N / 10) {
-        rev = rev * 10 + (N % 10);
+    int shifts[n];
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &shifts[i]);
     }
 
-    printf("%d", rev);
+    scanf("%d", &k);
+
+    for (i = k; i < n; i++) {
+        printf("%d ", shifts[i]);
+    }
+    for (i = 0; i < k; i++) {
+        printf("%d ", shifts[i]);
+    }
 
     return 0;
 }

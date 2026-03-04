@@ -1,30 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int fuel, n;
-    int consumption;
-    int i = 0;
-    int trips = 0;
+    int n, i;
 
-    scanf("%d", &fuel);
     scanf("%d", &n);
 
-    while (i < n) {
-        scanf("%d", &consumption);
+    int perf[n], leaders[n];
+    int leaderCount = 0;
 
-        if (fuel < consumption) {
-            break;   // not enough fuel for next trip
-        }
-
-        fuel = fuel - consumption;
-        trips++;
-
-        i++;
+    for (i = 0; i < n; i++) {
+        scanf("%d", &perf[i]);
     }
 
-    printf("Completed Trips: %d\n", trips);
-    printf("Remaining Fuel: %d\n", fuel);
+    int maxFromRight = perf[n - 1];
+    leaders[leaderCount++] = maxFromRight;
+
+    for (i = n - 2; i >= 0; i--) {
+        if (perf[i] >= maxFromRight) {
+            maxFromRight = perf[i];
+            leaders[leaderCount++] = perf[i];
+        }
+    }
+
+    for (i = leaderCount - 1; i >= 0; i--) {
+        printf("%d ", leaders[i]);
+    }
 
     return 0;
 }
-
