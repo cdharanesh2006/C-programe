@@ -1,29 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int n;
-    int hours;
-    int i = 0;
-    int inactiveWeeks = 0;
+    int n, i;
 
     scanf("%d", &n);
 
-    while (i < n) {
-        scanf("%d", &hours);
+    int prices[n];
 
-        if (hours == 0) {
-            inactiveWeeks++;
-        }
-
-        i++;
+    for (i = 0; i < n; i++) {
+        scanf("%d", &prices[i]);
     }
 
-    printf("Inactive Weeks: %d\n", inactiveWeeks);
+    int maxFromRight = prices[n - 1];
+    prices[n - 1] = -1;
 
-    if (inactiveWeeks >= 3) {
-        printf("Risk Status: High\n");
-    } else {
-        printf("Risk Status: Low\n");
+    for (i = n - 2; i >= 0; i--) {
+        int temp = prices[i];
+        prices[i] = maxFromRight;
+
+        if (temp > maxFromRight) {
+            maxFromRight = temp;
+        }
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("%d ", prices[i]);
     }
 
     return 0;
