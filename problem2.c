@@ -1,25 +1,37 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main() {
-    int N, X, count = 0;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &N);
+    int a[R][C];
+    int maxPos = INT_MIN, secondMaxPos = INT_MIN;
+    int minNeg = INT_MAX, secondMinNeg = INT_MAX;
 
-    int marks[N];
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            scanf("%d", &a[i][j]);
 
-    for(int i = 0; i < N; i++) {
-        scanf("%d", &marks[i]);
-    }
+            if (a[i][j] > maxPos) {
+                secondMaxPos = maxPos;
+                maxPos = a[i][j];
+            } else if (a[i][j] > secondMaxPos) {
+                secondMaxPos = a[i][j];
+            }
 
-    scanf("%d", &X);
-
-    for(int i = 0; i < N; i++) {
-        if(marks[i] == X) {
-            count++;
+            if (a[i][j] < minNeg) {
+                secondMinNeg = minNeg;
+                minNeg = a[i][j];
+            } else if (a[i][j] < secondMinNeg) {
+                secondMinNeg = a[i][j];
+            }
         }
     }
 
-    printf("%d", count);
+    int prod1 = maxPos * secondMaxPos;
+    int prod2 = minNeg * secondMinNeg;
 
+    printf("%d", prod1 > prod2 ? prod1 : prod2);
     return 0;
 }
