@@ -1,31 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    long long maxProduct = -1e18;
+    int index = 0;
 
-    int prices[n];
-
-    for (i = 0; i < n; i++) {
-        scanf("%d", &prices[i]);
-    }
-
-    int maxFromRight = prices[n - 1];
-    prices[n - 1] = -1;
-
-    for (i = n - 2; i >= 0; i--) {
-        int temp = prices[i];
-        prices[i] = maxFromRight;
-
-        if (temp > maxFromRight) {
-            maxFromRight = temp;
+    for (int i = 0; i < R; i++) {
+        long long product = 1;
+        for (int j = 0; j < C; j++) {
+            scanf("%d", &a[i][j]);
+            product *= a[i][j];
+        }
+        if (product > maxProduct) {
+            maxProduct = product;
+            index = i;
         }
     }
 
-    for (i = 0; i < n; i++) {
-        printf("%d ", prices[i]);
-    }
-
+    printf("%d", index);
     return 0;
 }

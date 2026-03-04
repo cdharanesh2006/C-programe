@@ -1,30 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    int count = 0;
 
-    int perf[n], leaders[n];
-    int leaderCount = 0;
-
-    for (i = 0; i < n; i++) {
-        scanf("%d", &perf[i]);
-    }
-
-    int maxFromRight = perf[n - 1];
-    leaders[leaderCount++] = maxFromRight;
-
-    for (i = n - 2; i >= 0; i--) {
-        if (perf[i] >= maxFromRight) {
-            maxFromRight = perf[i];
-            leaders[leaderCount++] = perf[i];
+    for (int i = 0; i < R; i++) {
+        int even = 0, odd = 0;
+        for (int j = 0; j < C; j++) {
+            scanf("%d", &a[i][j]);
+            if (a[i][j] % 2 == 0)
+                even++;
+            else
+                odd++;
         }
+        if (even == odd)
+            count++;
     }
 
-    for (i = leaderCount - 1; i >= 0; i--) {
-        printf("%d ", leaders[i]);
-    }
-
+    printf("%d", count);
     return 0;
 }

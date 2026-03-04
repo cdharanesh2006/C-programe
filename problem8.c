@@ -1,24 +1,25 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main() {
-    int n, k, i;
+    int R, C;
+    scanf("%d %d", &R, &C);
 
-    scanf("%d", &n);
+    int a[R][C];
+    for (int i = 0; i < R; i++)
+        for (int j = 0; j < C; j++)
+            scanf("%d", &a[i][j]);
 
-    int shifts[n];
+    int maxSum = INT_MIN;
 
-    for (i = 0; i < n; i++) {
-        scanf("%d", &shifts[i]);
+    for (int i = 0; i < R - 1; i++) {
+        for (int j = 0; j < C - 1; j++) {
+            int sum = a[i][j] + a[i][j+1] + a[i+1][j] + a[i+1][j+1];
+            if (sum > maxSum)
+                maxSum = sum;
+        }
     }
 
-    scanf("%d", &k);
-
-    for (i = k; i < n; i++) {
-        printf("%d ", shifts[i]);
-    }
-    for (i = 0; i < k; i++) {
-        printf("%d ", shifts[i]);
-    }
-
+    printf("%d", maxSum);
     return 0;
 }
