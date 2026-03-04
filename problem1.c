@@ -1,28 +1,16 @@
 #include <stdio.h>
-#include <limits.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int count = 0;
 
-    int salary[R][C];
-    int max1 = INT_MIN, max2 = INT_MIN;
+    printf("Enter username: ");
+    scanf("%s", str);
 
-    for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
-            scanf("%d", &salary[i][j]);
-
-            if (salary[i][j] > max1) {
-                if (salary[i][j] != max1) {
-                    max2 = max1;
-                    max1 = salary[i][j];
-                }
-            } else if (salary[i][j] > max2 && salary[i][j] != max1) {
-                max2 = salary[i][j];
-            }
-        }
+    while(str[count] != '\0') {
+        count++;
     }
 
-    printf("%d", max2);
+    printf("%d", count);
     return 0;
 }

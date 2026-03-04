@@ -1,37 +1,24 @@
 #include <stdio.h>
-#include <limits.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0, flag = 0;
 
-    int a[R][C];
-    int maxPos = INT_MIN, secondMaxPos = INT_MIN;
-    int minNeg = INT_MAX, secondMinNeg = INT_MAX;
+    printf("Enter password: ");
+    scanf("%s", str);
 
-    for (int i = 0; i < R; i++) {
-        for (int j = 0; j < C; j++) {
-            scanf("%d", &a[i][j]);
-
-            if (a[i][j] > maxPos) {
-                secondMaxPos = maxPos;
-                maxPos = a[i][j];
-            } else if (a[i][j] > secondMaxPos) {
-                secondMaxPos = a[i][j];
-            }
-
-            if (a[i][j] < minNeg) {
-                secondMinNeg = minNeg;
-                minNeg = a[i][j];
-            } else if (a[i][j] < secondMinNeg) {
-                secondMinNeg = a[i][j];
-            }
+    while(str[i] != '\0') {
+        if(str[i] >= 'A' && str[i] <= 'Z') {
+            flag = 1;
+            break;
         }
+        i++;
     }
 
-    int prod1 = maxPos * secondMaxPos;
-    int prod2 = minNeg * secondMinNeg;
+    if(flag)
+        printf("Valid");
+    else
+        printf("Invalid");
 
-    printf("%d", prod1 > prod2 ? prod1 : prod2);
     return 0;
 }
