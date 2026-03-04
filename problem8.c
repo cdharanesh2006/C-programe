@@ -1,25 +1,19 @@
 #include <stdio.h>
-#include <limits.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[200];
+    int i = 0, count = 0;
 
-    int a[R][C];
-    for (int i = 0; i < R; i++)
-        for (int j = 0; j < C; j++)
-            scanf("%d", &a[i][j]);
+    printf("Enter address: ");
+    getchar();  // clear buffer
+    fgets(str, sizeof(str), stdin);
 
-    int maxSum = INT_MIN;
-
-    for (int i = 0; i < R - 1; i++) {
-        for (int j = 0; j < C - 1; j++) {
-            int sum = a[i][j] + a[i][j+1] + a[i+1][j] + a[i+1][j+1];
-            if (sum > maxSum)
-                maxSum = sum;
-        }
+    while(str[i] != '\0') {
+        if(str[i] == ' ')
+            count++;
+        i++;
     }
 
-    printf("%d", maxSum);
+    printf("%d", count);
     return 0;
 }

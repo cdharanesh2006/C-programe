@@ -1,25 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0;
 
-    int a[R][C];
-    int count = 0;
+    printf("Enter text: ");
+    fgets(str, sizeof(str), stdin);
 
-    for (int i = 0; i < R; i++) {
-        int even = 0, odd = 0;
-        for (int j = 0; j < C; j++) {
-            scanf("%d", &a[i][j]);
-            if (a[i][j] % 2 == 0)
-                even++;
-            else
-                odd++;
+    while(str[i] != '\0') {
+        if(str[i] >= 'a' && str[i] <= 'z') {
+            str[i] = str[i] - 32;
         }
-        if (even == odd)
-            count++;
+        i++;
     }
 
-    printf("%d", count);
+    printf("%s", str);
     return 0;
 }

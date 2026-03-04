@@ -1,25 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    int R, C;
-    scanf("%d %d", &R, &C);
+    char str[100];
+    int i = 0;
 
-    int a[R][C];
-    long long maxProduct = -1e18;
-    int index = 0;
+    printf("Enter text: ");
+    fgets(str, sizeof(str), stdin);
 
-    for (int i = 0; i < R; i++) {
-        long long product = 1;
-        for (int j = 0; j < C; j++) {
-            scanf("%d", &a[i][j]);
-            product *= a[i][j];
+    while(str[i] != '\0') {
+        if(str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] = str[i] + 32;
         }
-        if (product > maxProduct) {
-            maxProduct = product;
-            index = i;
-        }
+        i++;
     }
 
-    printf("%d", index);
+    printf("%s", str);
     return 0;
 }
