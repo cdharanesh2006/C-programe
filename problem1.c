@@ -1,16 +1,16 @@
 #include <stdio.h>
 
+float calculateSimpleInterest(int P, int R, int T) {
+    float SI;
+    SI = (P * R * T) / 100.0;
+    return SI;
+}
+
 int main() {
-    char str[100];
-    int count = 0;
-
-    printf("Enter username: ");
-    scanf("%s", str);
-
-    while(str[count] != '\0') {
-        count++;
-    }
-
-    printf("%d", count);
+    int P, R, T;
+    float result;
+    scanf("%d %d %d", &P, &R, &T);
+    result = calculateSimpleInterest(P, R, T);
+    printf("%.2f", result);
     return 0;
 }

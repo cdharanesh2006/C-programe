@@ -1,24 +1,14 @@
 #include <stdio.h>
-
-int main() {
-    char str[100];
-    int i = 0, flag = 0;
-
-    printf("Enter password: ");
-    scanf("%s", str);
-
-    while(str[i] != '\0') {
-        if(str[i] >= 'A' && str[i] <= 'Z') {
-            flag = 1;
-            break;
-        }
-        i++;
-    }
-
-    if(flag)
-        printf("Valid");
+int findMaximum(int a, int b) {
+    if (a > b)
+        return a;
     else
-        printf("Invalid");
-
+        return b;
+}
+int main() {
+    int A, B, result;
+    scanf("%d %d", &A, &B);
+    result = findMaximum(A, B);
+    printf("%d", result);
     return 0;
 }
