@@ -1,19 +1,12 @@
 #include <stdio.h>
 
+float areaCircle(int r) {
+    return 3.14 * r * r;
+}
+
 int main() {
-    char str[100];
-    int i = 0, length = 0;
-
-    printf("Enter text: ");
-    scanf("%s", str);
-
-    while(str[length] != '\0') {
-        length++;
-    }
-
-    for(i = length - 1; i >= 0; i--) {
-        printf("%c", str[i]);
-    }
-
+    int r;
+    scanf("%d", &r);
+    printf("%.2f", areaCircle(r));
     return 0;
 }

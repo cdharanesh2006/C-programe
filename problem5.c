@@ -1,27 +1,17 @@
 #include <stdio.h>
 
+int sumDigits(int n) {
+    int sum = 0;
+    while(n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+
 int main() {
-    char str[100];
-    int i = 0, length = 0, flag = 1;
-
-    printf("Enter code: ");
-    scanf("%s", str);
-
-    while(str[length] != '\0') {
-        length++;
-    }
-
-    for(i = 0; i < length/2; i++) {
-        if(str[i] != str[length - i - 1]) {
-            flag = 0;
-            break;
-        }
-    }
-
-    if(flag)
-        printf("Palindrome");
-    else
-        printf("Not Palindrome");
-
+    int n;
+    scanf("%d", &n);
+    printf("%d", sumDigits(n));
     return 0;
 }

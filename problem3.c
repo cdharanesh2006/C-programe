@@ -1,16 +1,15 @@
 #include <stdio.h>
 
+void checkEvenOdd(int n) {
+    if(n % 2 == 0)
+        printf("Even");
+    else
+        printf("Odd");
+}
+
 int main() {
-    char email[100];
-    int i = 0;
-
-    printf("Enter email: ");
-    scanf("%s", email);
-
-    while(email[i] != '@' && email[i] != '\0') {
-        printf("%c", email[i]);
-        i++;
-    }
-
+    int n;
+    scanf("%d", &n);
+    checkEvenOdd(n);
     return 0;
 }
