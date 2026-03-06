@@ -1,19 +1,17 @@
 #include <stdio.h>
 
-int main() {
-    char str[200];
-    int i = 0, count = 0;
-
-    printf("Enter address: ");
-    getchar();  // clear buffer
-    fgets(str, sizeof(str), stdin);
-
-    while(str[i] != '\0') {
-        if(str[i] == ' ')
-            count++;
-        i++;
+int reverseNumber(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
     }
+    return rev;
+}
 
-    printf("%d", count);
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d", reverseNumber(n));
     return 0;
 }
