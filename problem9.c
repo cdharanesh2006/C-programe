@@ -1,19 +1,22 @@
 #include <stdio.h>
 
-int main() {
-    char str[100];
-    int i = 0;
-
-    printf("Enter text: ");
-    fgets(str, sizeof(str), stdin);
-
-    while(str[i] != '\0') {
-        if(str[i] >= 'a' && str[i] <= 'z') {
-            str[i] = str[i] - 32;
-        }
-        i++;
+int reverse(int n) {
+    int rev = 0;
+    while(n > 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
     }
+    return rev;
+}
 
-    printf("%s", str);
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    if(n == reverse(n))
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+
     return 0;
 }
