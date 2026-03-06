@@ -1,19 +1,16 @@
 #include <stdio.h>
 
-int main() {
-    char str[100];
-    int i = 0;
-
-    printf("Enter text: ");
-    fgets(str, sizeof(str), stdin);
-
-    while(str[i] != '\0') {
-        if(str[i] >= 'A' && str[i] <= 'Z') {
-            str[i] = str[i] + 32;
-        }
-        i++;
+int sumNatural(int n) {
+    int sum = 0;
+    for(int i = 1; i <= n; i++) {
+        sum += i;
     }
+    return sum;
+}
 
-    printf("%s", str);
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d", sumNatural(n));
     return 0;
 }
