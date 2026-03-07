@@ -1,16 +1,17 @@
 #include <stdio.h>
-
-float calculateSimpleInterest(int P, int R, int T) {
-    float SI;
-    SI = (P * R * T) / 100.0;
-    return SI;
+void swap(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
 }
-
-int main() {
-    int P, R, T;
-    float result;
-    scanf("%d %d %d", &P, &R, &T);
-    result = calculateSimpleInterest(P, R, T);
-    printf("%.2f", result);
+int main()
+{
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("Before swap: %d %d\n", a, b);
+    swap(&a, &b);
+    printf("After swap: %d %d\n", a, b);
     return 0;
 }
