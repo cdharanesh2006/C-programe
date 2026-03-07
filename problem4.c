@@ -1,12 +1,19 @@
 #include <stdio.h>
+int main()
+{
+    char str1[100], str2[100];
+    char *p1, *p2;
+    fgets(str1, 100, stdin);
+    p1 = str1;
+    p2 = str2;
+    while(*p1 != '\0')
+    {
+        *p2 = *p1;
+        p1++;
+        p2++;
+    }
+    *p2 = '\0';
 
-float areaCircle(int r) {
-    return 3.14 * r * r;
-}
-
-int main() {
-    int r;
-    scanf("%d", &r);
-    printf("%.2f", areaCircle(r));
+    printf("%s", str2);
     return 0;
 }

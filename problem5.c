@@ -1,17 +1,19 @@
 #include <stdio.h>
-
-int sumDigits(int n) {
-    int sum = 0;
-    while(n > 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-    return sum;
-}
-
-int main() {
-    int n;
+int main()
+{
+    int n, i, sum = 0;
+    int arr[100];
+    int *p;
     scanf("%d", &n);
-    printf("%d", sumDigits(n));
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", arr + i);
+    }
+    p = arr;
+    for(i = 0; i < n; i++)
+    {
+        sum = sum + *(p + i);
+    }
+    printf("%d", sum);
     return 0;
 }
