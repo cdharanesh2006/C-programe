@@ -1,14 +1,24 @@
 #include <stdio.h>
-int findMaximum(int a, int b) {
-    if (a > b)
-        return a;
-    else
-        return b;
-}
-int main() {
-    int A, B, result;
-    scanf("%d %d", &A, &B);
-    result = findMaximum(A, B);
-    printf("%d", result);
+
+int main()
+{
+    int n, i, max;
+    int arr[100];
+    int *p;
+    scanf("%d", &n);
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", (arr + i));
+    }
+    p = arr;
+    max = *p;
+    for(i = 1; i < n; i++)
+    {
+        if(*(p + i) > max)
+        {
+            max = *(p + i);
+        }
+    }
+    printf("%d", max);
     return 0;
 }
