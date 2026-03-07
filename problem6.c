@@ -1,16 +1,35 @@
 #include <stdio.h>
 
-int factorial(int n) {
-    int fact = 1;
-    for(int i = 1; i <= n; i++) {
-        fact *= i;
-    }
-    return fact;
-}
+int main()
+{
+    int n, i, temp;
+    int arr[100];
+    int *start, *end;
 
-int main() {
-    int n;
     scanf("%d", &n);
-    printf("%d", factorial(n));
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", arr + i);
+    }
+
+    start = arr;
+    end = arr + n - 1;
+
+    while(start < end)
+    {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", *(arr + i));
+    }
+
     return 0;
 }
