@@ -1,15 +1,15 @@
-import java.util.Scanner;
-public class problem15 {
-    public static void main(String [] args){
-        Scanner scan=new Scanner(System.in);
-        int roomsBooked=scan.nextInt();
-        int priceOerRoom=scan.nextInt();
-        int serviceCharges=scan.nextInt();
-        int commission=scan.nextInt();
-        int result=(roomsBooked * priceOerRoom)+serviceCharges;
-        int TotalRevenue=result-commission;
-        System.out.println("Toytal Revenue="+TotalRevenue);
-        scan.close();
-    }
+import java.util.*;
 
+public class problem15 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int signalValue = sc.nextInt();
+        int toggleMask = sc.nextInt();
+
+        int toggled = signalValue ^ toggleMask;
+
+        System.out.println("Toggled Signal = " + toggled);
+        sc.close();
+    }
 }
