@@ -1,16 +1,15 @@
-import java.util.Scanner;
-public class problem14 {
-    public static void main(String[]args){
-        Scanner scan=new Scanner(System.in);
-        int baseSalry=scan.nextInt();
-        int sessions=scan.nextInt();
-        int payPerSession=scan.nextInt();
-        int Bonus=scan.nextInt();
-        int maintainfee=scan.nextInt();
-        int calculate=baseSalry+(sessions*payPerSession);
-        int Salary=calculate+Bonus-maintainfee;
-        System.out.println("Final Salary="+Salary);
-        scan.close();
+import java.util.*;
 
+public class problem14 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int permissionA = sc.nextInt();
+        int permissionB = sc.nextInt();
+
+        int merged = permissionA | permissionB;
+
+        System.out.println("Merged Permission Code = " + merged);
+        sc.close();
     }
 }
