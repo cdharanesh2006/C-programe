@@ -1,14 +1,13 @@
-import java.util.Scanner;
+import java.util.*;
+
 public class problem10 {
-    public static void main(String[]args){
-        Scanner scan=new Scanner(System.in);
-        int daysWorked=scan.nextInt();
-        int wagePerDay=scan.nextInt();
-        int overtimeBonus=scan.nextInt();
-        int maintenCharge=scan.nextInt();
-        int total=(daysWorked*wagePerDay)+overtimeBonus;
-        int FinalWeeklyWage=total-maintenCharge;
-        System.out.println("Final Weekly Wage="+FinalWeeklyWage);
-        scan.close();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int unitsConsumed = sc.nextInt();
+        int voltageFluctuation = sc.nextInt();
+
+        System.out.println((unitsConsumed > 500 || voltageFluctuation == 1) ? 
+        "Alert Triggered" : "Normal Usage");
     }
 }
